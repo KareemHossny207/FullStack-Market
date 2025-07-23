@@ -50,7 +50,7 @@ const ShopProvider = (props) => {
     const fetchAllProducts = async () => {
         try {
           const res = await axios.get(
-            `${API_URL}/product/all`,);
+            `${API_URL}/product/all`);
           if (res.data && res.data.success) {
             setAllproducts(res.data.products || []);
           } else {
