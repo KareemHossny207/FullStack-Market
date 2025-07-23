@@ -14,7 +14,6 @@ const allowedOrigins = process.env.FRONTEND_URL.split(',');
 app.use(cors({
   origin: function(origin, callback) {
     const allowed = [
-      'https://backend-market-one.vercel.app',
       'https://frontend-market-weld.vercel.app',
       'http://localhost:3000',
       'http://localhost:3001'

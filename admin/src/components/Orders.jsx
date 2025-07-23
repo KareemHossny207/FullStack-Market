@@ -31,7 +31,7 @@ const statusIcons = {
 };
 
   const API_URL = process.env.REACT_APP_API_URL;
-const API_BASE = `${API_URL}/api/order`;
+const API_BASE = `${API_URL}/order`;
 const Orders = ({ token }) => {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
