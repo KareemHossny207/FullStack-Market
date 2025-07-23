@@ -11,4 +11,5 @@ productRouter.put("/stock/:id", adminAuth, productController.updateStock);
 
 // (no authentication required)
 productRouter.get("/all", productController.allProducts);
+productRouter.get("/:id", productController.getProduct);
 module.exports = productRouter;

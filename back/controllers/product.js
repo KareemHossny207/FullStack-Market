@@ -136,45 +136,6 @@ exports.getProduct = async (req, res) => {
         });
     }
 };
-exports.searchProducts = async (req, res) => {
-    try {
-        const { q } = req.query;
-
-        if (!q) {
-            return res.status(400).json({
-                success: false,
-                message: 'Search query is required'
-            });
-        }
-
-        // Create search regex
-        const searchRegex = new RegExp(q, 'i');
-
-        // Search in name, description, category, and subcategory
-        const products = await productModel.find({
-            $or: [
-                { name: searchRegex },
-                { description: searchRegex },
-                { category: searchRegex },
-                { subcategory: searchRegex }
-            ]
-        }).sort({ createdAt: -1 });
-
-        res.json({
-            success: true,
-            count: products.length,
-            query: q,
-            products
-        });
-
-    } catch (error) {
-        console.error('Search products error:', error);
-        res.status(500).json({
-            success: false,
-            message: 'Internal server error'
-        });
-    }
-};
 
 exports.updateStock = async (req, res) => {
     try {
