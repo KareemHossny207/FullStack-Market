@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&display=swap");
+
+
+.logo:hover .icon {
+    transform: translateX(10px);
+    transition: transform 0.2s;
+}
