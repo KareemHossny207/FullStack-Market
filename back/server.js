@@ -10,13 +10,9 @@ const cartRouter=require("./routes/cart")
 const orderRouter=require("./routes/order")
 
 // Configure CORS to allow requests from admin and frontend domains
+const allowedOrigins = process.env.FRONTEND_URL.split(',');
 app.use(cors({
-  origin: [
-    'https://admin-market-iota.vercel.app',
-    'https://frontend-market-weld.vercel.app',
-    'http://localhost:3000',
-    'http://localhost:3001'
-  ],
+  origin: allowedOrigins,
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'token']
