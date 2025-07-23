@@ -53,6 +53,14 @@ app.use('/api/cart', cartRouter)
 app.use('/api/order', orderRouter)
 const PORT = process.env.PORT || 7777;
 
-app.listen(PORT, () => {
+if (process.env.VERCEL !== "1") {
+  app.listen(PORT, (err) => {
+    if (err) {
+      console.error('Error starting server:', err);
+      return;
+    }
     console.log(`Server is running on port ${PORT}`);
-});
+  });
+}
+
+module.exports = app;
