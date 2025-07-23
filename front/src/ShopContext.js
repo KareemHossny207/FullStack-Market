@@ -21,7 +21,7 @@ const ShopProvider = (props) => {
     });
     const navigate = useNavigate();
 
-    const API_URL = "http://localhost:7777/api";
+    const API_URL = "https://backend-market-one.vercel.app";
 
       // Load cart from localStorage on initial load
   useEffect(() => {

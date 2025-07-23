@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { FaUsers, FaBoxOpen, FaShoppingCart, FaChartLine } from 'react-icons/fa'
 import axios from 'axios'
 
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:7777/api';
+const API_URL = process.env.REACT_APP_API_URL || 'https://backend-market-one.vercel.app';
 
 const DashBoard = ({ token }) => {
   const [stats, setStats] = useState({ products: null, orders: null, sales: null });
