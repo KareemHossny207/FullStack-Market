@@ -27,6 +27,10 @@ app.use(express.json());
 if (typeof connectingDB === 'function') connectingDB();
 if (typeof connectingcloudinary === 'function') connectingcloudinary();
 
+app.use('/', (req, res) => {
+  res.send('API is running!');
+});
+
 app.use((err, req, res, next) => {
     console.error('Global error handler:', err);
     res.status(500).json({
