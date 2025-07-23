@@ -12,15 +12,23 @@ const app = express()
 const allowedOrigins = process.env.FRONTEND_URL.split(',');
 
 app.use(cors({
-  credentials: true,
   origin: function(origin, callback) {
-    if (!origin) return callback(null, true);
-    if (allowedOrigins.includes(origin)) {
-      return callback(null, true);
+    const allowed = [
+      'https://backend-market-one.vercel.app',
+      'https://frontend-market-weld.vercel.app',
+      'http://localhost:3000',
+      'http://localhost:3001'
+    ];
+    // Allow requests with no origin (like mobile apps, curl, etc.)
+    if (!origin || allowed.indexOf(origin) !== -1) {
+      callback(null, true);
     } else {
-      return callback(new Error('Not allowed by CORS'));
+      callback(new Error('Not allowed by CORS'));
     }
-  }
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'token']
 }));
 app.use(express.json());
 
